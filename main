@@ -1,0 +1,58 @@
+-- Demon Hub | Red Gamer UI
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local UIStroke = Instance.new("UIStroke")
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.Name = "DemonHub"
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(15, 15, 20)
+Frame.Position = UDim2.fromScale(0.5, 0.5)
+Frame.Size = UDim2.fromOffset(500, 300)
+Frame.AnchorPoint = Vector2.new(0.5, 0.5)
+Frame.BorderSizePixel = 0
+Frame.BackgroundTransparency = 0.05
+
+UIStroke.Parent = Frame
+UIStroke.Color = Color3.fromRGB(225, 0, 0)
+UIStroke.Thickness = 2
+
+Title.Parent = Frame
+Title.Size = UDim2.new(1, 0, 0, 40)
+Title.BackgroundTransparency = 1
+Title.Text = "😈 DEMON HUB"
+Title.TextColor3 = Color3.fromRGB(225, 0, 0)
+Title.Font = Enum.Font.GothamBold
+Title.TextSize = 22
+Title.TextStrokeTransparency = 0.7
+
+-- Toggle example
+local function createToggle(text, yPos)
+	local btn = Instance.new("TextButton")
+	btn.Parent = Frame
+	btn.Position = UDim2.new(0, 20, 0, yPos)
+	btn.Size = UDim2.new(0, 460, 0, 35)
+	btn.BackgroundColor3 = Color3.fromRGB(25, 25, 35)
+	btn.Text = text .. " : OFF"
+	btn.TextColor3 = Color3.fromRGB(255,255,255)
+	btn.Font = Enum.Font.Gotham
+	btn.TextSize = 14
+	btn.BorderSizePixel = 0
+
+	local on = false
+	btn.MouseButton1Click:Connect(function()
+		on = not on
+		btn.Text = text .. (on and " : ON" or " : OFF")
+		btn.BackgroundColor3 = on
+			and Color3.fromRGB(180, 0, 0)
+			or Color3.fromRGB(25, 25, 35)
+	end)
+end
+
+createToggle("Auto Farm", 60)
+createToggle("Auto Buy", 105)
+createToggle("Auto Sell", 150)
+createToggle("God Mode", 195)
