@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Demon Hub</title>
+
+<style>
+:root {
+  --bg: #0b0b0f;
+  --panel: #12121a;
+  --red: #e10600;
+  --red-glow: rgba(225, 6, 0, 0.6);
+  --text: #eaeaea;
+  --muted: #9a9a9a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #1a0000, #000);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* MAIN WINDOW */
+.window {
+  width: 720px;
+  height: 420px;
+  background: var(--panel);
+  border-radius: 14px;
+  box-shadow: 0 0 40px var(--red-glow);
+  display: flex;
+  overflow: hidden;
+  border: 1px solid #2a0000;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 170px;
+  background: #0c0c12;
+  padding: 15px;
+  border-right: 1px solid #250000;
+}
+
+.title {
+  color: var(--red);
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 0 0 8px var(--red-glow);
+}
+
+.menu button {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  text-align: left;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.menu button:hover,
+.menu button.active {
+  background: rgba(225, 6, 0, 0.15);
+  color: var(--text);
+}
+
+/* CONTENT */
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+.section-title {
+  color: var(--red);
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+/* TOGGLE ROW */
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0f0f16;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #200000;
+}
+
+.row span {
+  color: var(--text);
+  font-size: 14px;
+}
+
+/* TOGGLE SWITCH */
+.switch {
+  position: relative;
+  width: 46px;
+  height: 24px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  inset: 0;
+  background: #333;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 3px;
+  top: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+input:checked + .slider {
+  background: var(--red);
+  box-shadow: 0 0 10px var(--red-glow);
+}
+
+input:checked + .slider::before {
+  transform: translateX(22px);
+}
+</style>
+</head>
+
+<body>
+
+<div class="window">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="title">Demon Hub</div>
+    <div class="menu">
+      <button class="active">Main</button>
+      <button>Farm</button>
+      <button>Player</button>
+      <button>Finder</button>
+      <button>Server</button>
+      <button>Discord</button>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    <div class="section-title">Farm</div>
+
+    <div class="row">
+      <span>Auto Fish</span>
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="row">
+      <span>Auto Buy Best Rod</span>
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="row">
+      <span>Sell if less than M$</span>
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="row">
+      <span>Auto Sell Pets</span>
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="row">
+      <span>Auto Buy Brainrot</span>
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
